@@ -11,21 +11,37 @@ export default class InstrumentFamilyView {
   });
 };
 
-render(family) {
-  this.container.innerHTML = '';
+render({name, description, instruments}) {
+    this.container.innerHTML = '';
 
-  const familyName = this.createElement('h2', family.name);
-  this.container.appendChild(familyName);
+    const familyName = this.createElement('h2', name);
+    this.container.appendChild(familyName);
 
-  const familyDescription = this.createElement('p', family.description);
-  this.container.appendChild(familyDescription);
+    const familyDescription = this.createElement('p', description);
+    this.container.appendChild(familyDescription);
 
-  const instrumentListTitle = this.createElement('h3', 'Instruments include:');
-  this.container.appendChild(instrumentListTitle);
+    const instrumentListTitle = this.createElement('h3', 'Instruments include:');
+    this.container.appendChild(instrumentListTitle);
 
-  const instrumentList = this.createInstrumentList(family.instruments);
-  this.container.appendChild(instrumentList);
-};
+    const instrumentList = this.createInstrumentList(instruments);
+    this.container.appendChild(instrumentList);
+  }
+
+// render(family) {
+//   this.container.innerHTML = '';
+//
+//   const familyName = this.createElement('h2', family.name);
+//   this.container.appendChild(familyName);
+//
+//   const familyDescription = this.createElement('p', family.description);
+//   this.container.appendChild(familyDescription);
+//
+//   const instrumentListTitle = this.createElement('h3', 'Instruments include:');
+//   this.container.appendChild(instrumentListTitle);
+//
+//   const instrumentList = this.createInstrumentList(family.instruments);
+//   this.container.appendChild(instrumentList);
+// };
 
 createElement(elementType, text) {
   const element = document.createElement(elementType);
